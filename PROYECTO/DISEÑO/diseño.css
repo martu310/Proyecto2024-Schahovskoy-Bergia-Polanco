@@ -103,7 +103,7 @@
     color: #ffffff;
     background-color: #280909;
 
-    cursor:url("C:\Users\karol\OneDrive\Escritorio\Lab de Computación II\PROYECTO\IMAGENES\flecha.png");
+    cursor:pointer;
     z-index: 1;
 }
 
@@ -115,6 +115,18 @@
 #boton:hover
 {
 transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 50%; border-width:4px ;
+}
+
+.instrucciones
+{
+    width: 10cm;
+    height:auto;
+    border-radius: 6px;
+    
+    color: #ffffff;
+    background-color: #280909;
+
+    z-index: 1;
 }
 
 .pasto_nivel
