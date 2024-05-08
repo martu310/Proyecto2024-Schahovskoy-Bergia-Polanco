@@ -39,11 +39,14 @@
 }
 .botonStop
 {
+    position: absolute;
+    left:14cm;
+    bottom:1.9cm;
     width: 2cm;
     height:auto;
     border-radius: 6px;
     color: #ffffff;
-    background-color: #e90000;
+    background-color: transparent;
     cursor:pointer;
     z-index: 1;
 }
@@ -91,4 +94,22 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     position: absolute;
     left:12cm;
     bottom: 1cm;
+}
+
+#progreso {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 20px;
+    border: 1px solid black;
+    background-color: rgb(93, 29, 29);
+    z-index: 1000;
+}
+.barra {
+    position: absolute;
+    left: 7cm;
+    bottom: 2cm;
+    width: 5cm;
+    height: 2.5cm;
 }
