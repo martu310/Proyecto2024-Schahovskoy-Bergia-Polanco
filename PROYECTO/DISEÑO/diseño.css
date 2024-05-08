@@ -37,6 +37,16 @@
     cursor:pointer;
     z-index: 1;
 }
+.botonStop
+{
+    width: 2cm;
+    height:auto;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #e90000;
+    cursor:pointer;
+    z-index: 1;
+}
 .links {
     color: #ffffff;
     text-decoration: none;
@@ -55,4 +65,30 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     background-color: #280909;
 
     z-index: 1;
+}
+.jabalina
+{
+/*modificar con el java*/
+    position: absolute;
+    top:35%;
+    left:17.5%;
+    background-color:transparent;
+    z-index:2;
+}
+#container {
+    position: relative;
+}
+
+.object {
+    position: absolute;
+}
+
+#globo {
+    width: 50px;
+    height: 50px;
+}
+.parar{
+    position: absolute;
+    left:12cm;
+    bottom: 1cm;
 }
