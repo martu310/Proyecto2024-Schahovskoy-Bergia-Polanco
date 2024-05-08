@@ -18,19 +18,27 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+
     }
 </style>
 </head>
     <body>
-        <main>
-            <ul>
-            <div class="background-niveles">
-                <button id="boton" class="boton"><a class="links" href="../MENU.html">MENU</a></button>
+        <div id="container">
+            <div id="globo" class="object">
+                <img src="../IMAGENES/GLOBO.gif" alt="Globo">
             </div>
-            </ul>
-        </main>
-        <div class="globo">
-            <img src="../IMAGENES/GLOBO.gif">
+            <div id="jabalina" class="object">
+                <img src="../IMAGENES/JABALINA.gif">
+            </div>
         </div>
+        <div class="parar">
+            <button id="boton" class="botonStop">PARAR</buttonid>
+        </div>
+        <main>
+            <div class="background-niveles">
+                <button class="boton"><a class="links" href="../MENU.html">MENU</a></button>
+            </div>
+        </main>
     </body>
+    <script src="../JAVA/script.js"></script>
 </html>
