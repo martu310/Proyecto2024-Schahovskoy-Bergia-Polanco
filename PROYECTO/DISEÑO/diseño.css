@@ -46,6 +46,10 @@
     background-color: #e90000;
     cursor:pointer;
     z-index: 1;
+    position: absolute;
+    left:12cm;
+    bottom:1cm;
+
 }
 .links {
     color: #ffffff;
@@ -53,7 +57,7 @@
 }
 #boton:hover
 {
-transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 50%; border-width:4px ;
+transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 30%; border-width:4px ;
 }
 .instrucciones
 {
@@ -86,9 +90,4 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
 #globo {
     width: 50px;
     height: 50px;
-}
-.parar{
-    position: absolute;
-    left:12cm;
-    bottom: 1cm;
 }
