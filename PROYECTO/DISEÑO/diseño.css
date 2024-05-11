@@ -29,7 +29,7 @@
 {
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    bottom: 10%;
+    bottom: 0.5%;
     left: 35%;
     width: 2cm;
     height:1.5cm;
@@ -136,6 +136,7 @@
     background-size: cover;
     margin-left: 5.5cm;
     margin-top: 1cm;
+    z-index: -1;
 }
 
 #board 
