@@ -37,6 +37,19 @@
     cursor:pointer;
     z-index: 1;
 }
+.botonStop
+{
+    position: absolute;
+    left:14cm;
+    bottom:1.9cm;
+    width: 2cm;
+    height:auto;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: transparent;
+    cursor:pointer;
+    z-index: 1;
+}
 .links {
     color: #ffffff;
     text-decoration: none;

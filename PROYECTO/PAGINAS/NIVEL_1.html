@@ -18,27 +18,36 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+
     }
 </style>
 </head>
     <body>
+        <div id="container">
+            <div id="globo" class="object">
+                <img src="../IMAGENES/GLOBO.gif" alt="Globo">
+            </div>
+            <div id="jabalina" class="object">
+                <img src="../IMAGENES/JABALINA.gif">
+            </div>
+        </div>
         <main>
-            <ul>
             <div class="background-niveles">
-<<<<<<< Updated upstream
                 <button id="boton" class="boton"><a class="links" href="../MENU.html">MENU</a></button>
-=======
             <a href="../MENU.html">
                 <div id="butonId">
                     <MENU></MENU>
                 </div>
             </a>
->>>>>>> Stashed changes
             </div>
-            </ul>
         </main>
-        <div class="globo">
-            <img src="../IMAGENES/GLOBO.gif">
+        <div class="barra">
+            <div id="fondoProgreso"></div>
+            <div id="progreso"></div>
+        </div>
+        <div class = "botonStop"> 
+            <button id="botonParar">Parar</button>
         </div>
     </body>
+    <script src="../JAVA/script.js"></script>
 </html>
