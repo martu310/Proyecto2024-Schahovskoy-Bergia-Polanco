@@ -25,18 +25,6 @@
     top:25px;
     left:65px;
 }
-.boton
-{
-    width: 4cm;
-    height:1.5cm;
-    border-radius: 6px;
-    
-    color: #ffffff;
-    background-color: #280909;
-
-    cursor:pointer;
-    z-index: 1;
-}
 .botonStop
 {
     position: absolute;
@@ -63,9 +51,10 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     width: 10cm;
     height:auto;
     border-radius: 6px;
+    padding: 10px;
     
     color: #ffffff;
-    background-color: #280909;
+    background-color: #000000;
 
     z-index: 1;
 }
@@ -125,13 +114,15 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
 }
 #botonId
 {
+    text-align: justify;
+    text-align: center;
     transform: scale(2,2);
     margin-bottom: 2cm;
-    height: auto; width: auto;
+    height: 20px; width: 60px;
     padding: 10px;
     text-decoration: none;
     background-image: url('../IMAGENES/BOTON.gif');
-    background-size: cover;
+    background-size:cover;
     color: white;
 }
 #botonId:hover
@@ -149,6 +140,7 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
 #nubes
 {
     width: 80%; height: 3cm;
-    background-size: contain;
+    background-size: cover;
     margin-left: 5.5cm;
+    margin-top: 1cm;
 }
