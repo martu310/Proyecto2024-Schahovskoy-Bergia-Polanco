@@ -25,16 +25,17 @@
     top:25px;
     left:65px;
 }
-.botonStop
+#botonParar
 {
+    font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    left:14cm;
-    bottom:1.9cm;
+    bottom: 10%;
+    left: 35%;
     width: 2cm;
-    height:auto;
+    height:1.5cm;
     border-radius: 6px;
     color: #ffffff;
-    background-color: transparent;
+    background-color: red;
     cursor:pointer;
     z-index: 1;
 }
