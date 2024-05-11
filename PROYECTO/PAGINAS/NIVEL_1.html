@@ -25,6 +25,7 @@
 
     }
 </style>
+<script src="../JAVA/juego.js" > </script>
 </head>
     <body>
         <div id="container">
@@ -33,6 +34,14 @@
             </div>
         </div>
         <main>
+            <div id="container">
+                <div id="globo" class="object">
+                    <img src="../IMAGENES/GLOBO.gif" alt="Globo">
+                </div>
+                <div id="jabalina" class="object">
+                    <img src="../IMAGENES/JABALINA_SUBIDA.gif">
+                </div>
+            </div>
             <div class="background-niveles">
                 <a href="../MENU.html" id="botonId">
                     MENU
@@ -46,6 +55,8 @@
         <div class = "botonStop"> 
             <button id="botonParar">Parar</button>
         </div>
+        <canvas id = "board" ></canvas>
     </body>
     <script src="../JAVA/script.js"></script>
+
 </html>
