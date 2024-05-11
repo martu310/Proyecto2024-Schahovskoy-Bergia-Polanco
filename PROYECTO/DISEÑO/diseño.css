@@ -123,3 +123,25 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     height: 20px;
     overflow: hidden; /* Evita que el fondo de la barra se desborde */
 }
+#botonId
+{
+    transform: scale(2,2);
+    margin-bottom: 2cm;
+    height: auto; width: auto;
+    padding: 10px;
+    text-decoration: none;
+    background-image: url('../IMAGENES/BOTON.gif');
+    background-size: cover;
+    color: white;
+}
+#botonId:hover
+{
+    transition: all 0,5s;
+    background-image: url('../IMAGENES/BOTON\ HOVER.gif');
+    transform: scale(2.2,2.2);
+}
+#botonId:not(:hover)
+{
+    transition: all 0.5s;
+    background-image: url('../IMAGENES/BOTON.gif');
+}
