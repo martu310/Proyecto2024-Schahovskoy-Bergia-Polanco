@@ -55,8 +55,6 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     background-color: #280909;
 
     z-index: 1;
-<<<<<<< Updated upstream
-=======
 }
 .jabalina
 {
@@ -134,6 +132,4 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
 {
     transition: all 0.5s;
     background-image: url('../IMAGENES/BOTON.gif');
-    
->>>>>>> Stashed changes
 }
