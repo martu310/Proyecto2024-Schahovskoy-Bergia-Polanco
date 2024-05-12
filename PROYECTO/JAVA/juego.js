@@ -4,8 +4,8 @@ let boardheight = 600;
 let context; //variable para dibujar
 
 //jabalina
-let jabawidth = 5;
-let jabaheight = 2.5;
+let jabawidth = 1000;
+let jabaheight = 500;
 let jabax = 15;
 let jabay = 80;
 
@@ -25,7 +25,7 @@ let jaba = {
 //globo
 let globowidth = 200;
 let globoheight = 300;
-let globox = 600;
+let globox = 500;
 let globoy = 150;
 let globoimag;
 
@@ -36,6 +36,7 @@ let globo = {
     height: globoheight,
 }
 
+
 //Inicializar canvas
 window.onload = function() {
     // Inicializa el board
@@ -44,12 +45,13 @@ window.onload = function() {
     board.width = boardwidth;
     context = board.getContext("2d");
 
-    // Inicializa el globo y dibuja le globo en el canva gay
+    // Inicializa el globo y dibuja le globo en el canva 
     globoimag = new Image();
     globoimag.src = "../IMAGENES/globo.gif";
     globoimag.onload = function() {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
+    
 
     // Inicializa cada jabalina
     imagJabaSubida = new Image();
@@ -60,7 +62,7 @@ window.onload = function() {
 
     imagJabaCaida = new Image();
     imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif";
-
+           context.drawImage(imagJabaSubida, jaba.x, jaba.y, jaba.width, jaba.height);
     requestAnimationFrame (Actualizar) ;
 }
 
@@ -68,14 +70,13 @@ window.onload = function() {
 function Actualizar () //funcion que dibuja cada frame
 {
     requestAnimationFrame (Actualizar) ;
-
-    lanzar () ;
     
-    context.clearRect (0,0,boardwidth,boardheight) ; //borra el frame anterior
+    //context.clearRect (0,0,boardwidth,boardheight) ; //borra el frame anterior
+ 
+    lanzar();
 }
 
-function lanzar(newton) {
-    // Convertir el ángulo de lanzamiento de grados a radianes
+function lanzar() {
     theta=45;
     let rad = theta * Math.PI / 180;
 
@@ -91,10 +92,10 @@ function lanzar(newton) {
     vy += g;
 
     // Dibujar la jabalina en su posición actualizada
-    context.drawImage(imagJaba1, jaba.x, jaba.y, jaba.width, jaba.height);
+    checkJabalina();
 }
 
-function calcularAlturaMaxima(newton) {
+function calcularAlturaMaxima() {
     const g = 10; 
 
     let theta = 45;
@@ -109,7 +110,7 @@ function calcularAlturaMaxima(newton) {
     return alturaMaxima;
 }
 
-let alturaMaxima = calcularAlturaMaxima(newton);
+let alturaMaxima = calcularAlturaMaxima();
 
 function checkJabalina() {
     // Calcular la distancia relativa entre la posición actual y la altura máxima

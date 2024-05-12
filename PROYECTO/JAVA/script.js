@@ -2,6 +2,7 @@ var progreso = document.getElementById('progreso');
 var intervalo;
 var llenando = true; // Variable para controlar si se está llenando la barra
 var width = 0; // Variable para almacenar el valor actual de la barra
+let newton = null ;
 
 // Función para llenar o vaciar la barra de progreso
 function ajustarBarra() {
@@ -23,7 +24,10 @@ function ajustarBarra() {
 function detener() {
     clearInterval(intervalo); // Detener la animación
     width = parseInt(progreso.style.width) || 0; // Almacenar el valor actual de la barra
+    newton = width ;
 }
+
+
 
 // Evento cuando se hace clic en el botón "Parar"
 document.getElementById('botonParar').addEventListener('click', detener);
