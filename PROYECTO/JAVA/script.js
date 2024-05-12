@@ -1,5 +1,5 @@
 var progreso = document.getElementById('progreso');
-var intervalo;
+var intervalo ;
 var llenando = true; // Variable para controlar si se está llenando la barra
 var width = 0; // Variable para almacenar el valor actual de la barra
 let newton = null ;
@@ -7,12 +7,12 @@ let newton = null ;
 // Función para llenar o vaciar la barra de progreso
 function ajustarBarra() {
     if (llenando) {
-        width += 7; // Incrementar el valor de la barra
+        width += 5; // Incrementar el valor de la barra
         if (width >= 100) {
             llenando = false; // Cambiar la dirección cuando alcance el 100%
         }
     } else {
-        width -= 7; // Decrementar el valor de la barra
+        width -= 5; // Decrementar el valor de la barra
         if (width <= 0) {
             llenando = true; // Cambiar la dirección cuando llegue a 0
         }
@@ -34,3 +34,4 @@ document.getElementById('botonParar').addEventListener('click', detener);
 
 // Iniciar el llenado/vaciado de la barra automáticamente al cargar la página
 intervalo = setInterval(ajustarBarra, 50);
+
