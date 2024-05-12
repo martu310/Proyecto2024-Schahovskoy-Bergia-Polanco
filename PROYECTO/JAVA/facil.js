@@ -118,10 +118,5 @@ function trayectoria (){
         {
             jaba.x+=1;
             jaba.y = jabay + -1*( ((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
-            if(newton>30)
-                {
-                    jaba.y = Math.min(jaba.y,400);
-                    jaba.x -=1;
-                }
         }
 }
