@@ -99,13 +99,12 @@ function checkJabalina()
     if(jaba.x+jaba.width == reach()/2 )
     {
         jaba.jabaimg = imagJabaHor ;
-    } else if(jaba.x+jaba.width < reach()/2 )
-    {
-        jaba.jabaimg = imagJabaCaida ;
-    } else {
-        jaba.jabaimg = imagJabaSubida ;
-    }
-
+    } else if (jaba.x+jaba.width > reach()/2)  
+        {
+            jaba.jabaimg = imagJabaCaida ;
+        } else {
+            jaba.jabaimg = imagJabaSubida ;
+        }
 }
 
 function reach (){
