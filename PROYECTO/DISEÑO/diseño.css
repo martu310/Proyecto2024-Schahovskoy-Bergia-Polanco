@@ -59,15 +59,7 @@
 
     z-index: 1;
 }
-.jabalina
-{
-/*modificar con el java*/
-    position: absolute;
-    top:35%;
-    left:17.5%;
-    background-color:transparent;
-    z-index:2;
-}
+
 #container {
     position: relative;
 }
@@ -143,7 +135,7 @@
 {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 15%;
     width: 100%;
     height: 100%;
     background-color: transparent; 
