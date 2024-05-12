@@ -25,26 +25,27 @@
     top:25px;
     left:65px;
 }
-.botonStop
+#botonParar
 {
+    font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    left:14cm;
-    bottom:1.9cm;
+    bottom: 0.5%;
+    left: 35%;
     width: 2cm;
-    height:auto;
+    height:1.5cm;
     border-radius: 6px;
     color: #ffffff;
-    background-color: transparent;
+    background-color: red;
     cursor:pointer;
     z-index: 1;
+    text-align: justify;
+    text-align: center;
+    margin-bottom: 2cm;
+    padding: 10px;
 }
 .links {
     color: #ffffff;
     text-decoration: none;
-}
-#boton:hover
-{
-transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 50%; border-width:4px ;
 }
 .instrucciones
 {
@@ -62,19 +63,12 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
 #container {
     position: relative;
 }
-
 .object {
     position: absolute;
 }
-
 #globo {
     width: 50px;
     height: 50px;
-}
-.parar{
-    position: absolute;
-    left:12cm;
-    bottom: 1cm;
 }
 #progreso {
     position: absolute;
@@ -85,7 +79,6 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     background-color: rgb(255, 0, 0);
     z-index: 1000;
 }
-
 #fondoProgreso {
     position: absolute;
     left: 0;
@@ -135,6 +128,7 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     background-size: cover;
     margin-left: 5.5cm;
     margin-top: 1cm;
+    z-index: -1;
 }
 
 #board 
@@ -146,4 +140,23 @@ transition: all .5s ease-in-out; border-color: rgb(141, 23, 23); border-radius: 
     height: 100%;
     background-color: transparent; 
     border-bottom: 1px solid black;
+}
+
+#reloadButton {
+    display: none;
+    font-family: 'Pixelify sans', sans-serif;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 4cm;
+    height:1.5cm;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: red;
+    cursor:pointer;
+    z-index: 1;
+    text-align: justify;
+    text-align: center;
+    margin-bottom: 2cm;
+    padding: 10px;
 }

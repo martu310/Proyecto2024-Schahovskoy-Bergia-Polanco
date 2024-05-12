@@ -38,6 +38,7 @@ let globo = {
 
 const g = 10; 
 let alcance ;
+let jabalinaLanzada;
 
 window.onload = function() {
     // Inicializa el board
@@ -73,7 +74,6 @@ window.onload = function() {
 
 function Actualizar() {
     requestAnimationFrame(Actualizar);
-
     // Borra el frame anterior
     context.clearRect(0, 0, boardwidth, boardheight);
 
@@ -85,6 +85,7 @@ function Actualizar() {
     trayectoria();
     checkJabalina();
     context.drawImage(jaba.jabaimg, jaba.x, jaba.y, jaba.width, jaba.height);
+    checkCollision();
 }
 
 function Parar()
@@ -96,15 +97,18 @@ function Parar()
 
 function checkJabalina()
 {
-    if(jaba.x+jaba.width == reach()/2 )
+    if(jaba.x + jaba.width == reach()/2 )
     {
-        jaba.jabaimg = imagJabaHor ;
-    } else if (jaba.x+jaba.width > reach()/2)  
-        {
-            jaba.jabaimg = imagJabaCaida ;
-        } else {
-            jaba.jabaimg = imagJabaSubida ;
-        }
+        jaba.jabaimg = imagJabaHor;
+    } 
+    else if(jaba.x + jaba.width < reach()/2 )
+    {
+        jaba.jabaimg = imagJabaSubida; // Cambiado a imagJabaSubida
+    } 
+    else if (jaba.x + jaba.width > reach()/2)
+    {
+        jaba.jabaimg = imagJabaCaida; // Cambiado a imagJabaCaida
+    }
 }
 
 function reach (){
@@ -115,7 +119,39 @@ function reach (){
 function trayectoria (){
     if(Parar() == true)
         {
-            jaba.x+=1;
+            jabalinaLanzada=true;
+            jaba.x+=2.5;
             jaba.y = jabay + -1*( ((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
         }
+}
+// Define los límites de la hitbox del globo
+let hitboxWidth = 30; // Ancho de la hitbox
+let hitboxHeight = 130; // Alto de la hitbox
+let hitboxOffsetX = 10; // Desplazamiento horizontal de la hitbox desde la posición del globo
+let hitboxOffsetY = 50; // Desplazamiento vertical de la hitbox desde la posición del globo
+
+// Calcula los límites de la hitbox del globo en función de su posición y tamaño
+let hitboxLeft = globo.x + hitboxOffsetX;
+let hitboxRight = hitboxLeft + hitboxWidth;
+let hitboxTop = globo.y + hitboxOffsetY;
+let hitboxBottom = hitboxTop + hitboxHeight;
+
+function checkCollision() {
+    // Calcula los límites de la jabalina
+    let jabalinaLeft = jaba.x;
+    let jabalinaRight = jaba.x + jaba.width;
+    let jabalinaTop = jaba.y;
+    let jabalinaBottom = jaba.y + jaba.height;
+
+    // Comprueba si hay intersección entre los límites de la jabalina y la hitbox del globo
+    if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
+        // Aquí puedes agregar acciones adicionales, como detener el juego, mostrar un mensaje, etc.;
+        alert("GANASTE");
+    }
+    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height)||(jaba.y + jaba.height > globo.y + globo.height / 2))) {
+        document.getElementById("reloadButton").style.display = "block"; // Mostrar el botón
+    }
+}
+function reloadPage() {
+    window.location.reload(); // Recargar la página cuando se hace clic en el botón
 }
