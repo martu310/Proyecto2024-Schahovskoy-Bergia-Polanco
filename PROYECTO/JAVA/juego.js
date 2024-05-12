@@ -127,5 +127,5 @@ function checkJabalina() {
         // Si la distancia relativa es mayor que la distancia umbral,
         // mostrar la imagen de subida
         context.drawImage(imagJabaSubida, jaba.x, jaba.y, jaba.width, jaba.height);
-    }
+    }
 }
