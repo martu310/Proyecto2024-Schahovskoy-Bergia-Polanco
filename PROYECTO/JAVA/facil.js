@@ -160,6 +160,7 @@ function checkCollision() {
         // Aquí puedes agregar acciones adicionales, como detener el juego, mostrar un mensaje, etc.;
         colisionOcurrida = true; 
         document.getElementById("win").style.display = "block";
+        document.getElementById("reloadButton").style.display = "block";
     }
     if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height)||(jaba.y + jaba.height > globo.y + globo.height / 2))) {
         colisionVerificada = true;
@@ -170,6 +171,9 @@ function checkCollision() {
 }
 function reloadPage() {
     window.location.reload(); // Recargar la página cuando se hace clic en el botón
+}
+function redirectTo(url) {
+    window.location.href = url;
 }
 
 // Oculta el botón "Try Again" al principio

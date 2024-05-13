@@ -221,3 +221,6 @@ function checkCollision() {
 function reloadPage() {
     window.location.reload(); // Recargar la página cuando se hace clic en el botón
 }
+function redirectTo(url) {
+    window.location.href = url;
+}

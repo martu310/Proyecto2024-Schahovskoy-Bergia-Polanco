@@ -161,23 +161,20 @@
 }
 
 #win {
-    
-    font-family: 'Pixelify sans', sans-serif;
-    font-size: larger;
     display: none;
-    text-align: justify;
-    text-align: center;
+    font-family: 'Pixelify sans', sans-serif;
     position: absolute;
+    text-decoration: none;
     bottom: 60%;
     left: 50%;
-    margin-bottom: 2cm;
-    height: 40px; width: 90px;
+    width: 4cm;
+    height:1.5cm;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: rgb(29, 182, 70);
+    cursor:pointer;
+    z-index: 1;
+    text-align: justify;
+    text-align: center;
     padding: 10px;
-    border-radius: 10px;
-    border-color: rgb(5, 42, 5);
-    border-width: 10px;
-    text-decoration: none;
-    background-color: green;
-    background-size:cover;
-    color: white;
 }
