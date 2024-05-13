@@ -1,37 +1,35 @@
 var progreso = document.getElementById('progreso');
 var intervalo ;
-var llenando = true; // Variable para controlar si se está llenando la barra
-var width = 0; // Variable para almacenar el valor actual de la barra
+var llenando = true;
+var width = 0;
 let newton = null ;
 
-// Función para llenar o vaciar la barra de progreso
+//Función para llenar o vaciar la barra de progreso
 function ajustarBarra() {
     if (llenando) {
-        width += 5; // Incrementar el valor de la barra
+        width += 5;
         if (width >= 100) {
-            llenando = false; // Cambiar la dirección cuando alcance el 100%
+            llenando = false;
         }
     } else {
-        width -= 5; // Decrementar el valor de la barra
+        width -= 5;
         if (width <= 0) {
-            llenando = true; // Cambiar la dirección cuando llegue a 0
+            llenando = true;
         }
     }
-    progreso.style.width = width + '%'; // Actualizar el tamaño de la barra
+    progreso.style.width = width + '%';
 }
 
-// Función para detener el llenado/vaciado de la barra
+//Función para detener el llenado/vaciado de la barra
 function detener() {
-    clearInterval(intervalo); // Detener la animación
-    width = parseInt(progreso.style.width) || 0; // Almacenar el valor actual de la barra
+    clearInterval(intervalo);
+    width = parseInt(progreso.style.width) || 0;
     newton = width ;
 }
 
-
-
-// Evento cuando se hace clic en el botón "Parar"
+//Evento cuando se hace clic en el botón "Parar"
 document.getElementById('botonParar').addEventListener('click', detener);
 
-// Iniciar el llenado/vaciado de la barra automáticamente al cargar la página
+//Iniciar el llenado/vaciado de la barra automáticamente al cargar la página
 intervalo = setInterval(ajustarBarra, 50);
 
