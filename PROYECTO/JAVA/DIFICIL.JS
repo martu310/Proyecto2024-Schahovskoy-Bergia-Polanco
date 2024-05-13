@@ -61,7 +61,7 @@ let colisionOcurrida=false;
 let colisionVerificada=false;
 
 // Variable para controlar el movimiento vertical del globo
-let globoSpeedY = 1; // Velocidad de movimiento vertical del globo
+let globoSpeedY = 2; // Velocidad de movimiento vertical del globo
 
 window.onload = function() {
     // Inicializa el board
