@@ -36,6 +36,17 @@ let globo = {
     height: globoheight,
 }
 
+//HITBOX GLOBO
+let hitboxWidth = 30; 
+let hitboxHeight = 30;
+let hitboxOffsetX = 10;
+let hitboxOffsetY = 50;
+
+// Calcula los límites de la hitbox del globo en función de su posición y tamaño
+let hitboxLeft = globo.x + hitboxOffsetX;
+let hitboxRight = hitboxLeft + hitboxWidth;
+let hitboxTop = globo.y + hitboxOffsetY;
+let hitboxBottom = hitboxTop + hitboxHeight;
 
 const g = 10; 
 let alcance ;
@@ -144,19 +155,15 @@ function Parar()
     }
 }
 
-function checkJabalina()
-{
-    if(jaba.x + jaba.width == reach()/2 )
-    {
-        jaba.jabaimg = imagJabaHor;
-    } 
-    else if(jaba.x + jaba.width < reach()/2 )
-    {
-        jaba.jabaimg = imagJabaSubida; // Cambiado a imagJabaSubida
-    } 
-    else if (jaba.x + jaba.width > reach()/2)
-    {
-        jaba.jabaimg = imagJabaCaida; // Cambiado a imagJabaCaida
+function checkJabalina() {
+    if (!Parar()) {
+        jaba.jabaimg = imagJabaSubida; 
+    } else {
+        if (jaba.x < reach() / 2) {
+            jaba.jabaimg = imagJabaSubida; 
+        } else {
+            jaba.jabaimg = imagJabaCaida; 
+        }
     }
 }
 
@@ -167,39 +174,24 @@ function reach (){
 
 function trayectoria() {
     if (Parar()) {
-        // Determina la posición deseada en el eje y donde la jabalina debe detenerse
-        let alturaDeseada = 450; // Ajusta la altura deseada en el eje y
-
-        // Verifica si la jabalina ha alcanzado la altura deseada en el eje y
-        if (jaba.y >= alturaDeseada) {
-            // Si la jabalina alcanza la altura deseada en el eje y, detenerla en ese eje
+        let alturaDeseada = 450; 
+    
+        if (jaba.y >= alturaDeseada)
+         {
             jabalinaLanzada = true;
             jaba.y = alturaDeseada;
-            
-            // Verifica si la jabalina también ha alcanzado la misma posición en el eje x
-            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2) {
-                // Si la jabalina alcanza la posición deseada en el eje x, detenerla en ese eje
-                jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
-            }
-        } else {
-            // Independientemente de la posición en el eje x, mantén la trayectoria horizontal de la jabalina
-            jaba.x += 5;
-            jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
-        }
-    }
+
+            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2)
+                 {
+                 jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
+                 }
+        }           else
+                     {
+                     jaba.x += 2.5;
+                    jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
+                     }
+    }
 }
-
-// Define los límites de la hitbox del globo
-let hitboxWidth = 30; // Ancho de la hitbox
-let hitboxHeight = 30; // Alto de la hitbox
-let hitboxOffsetX = 10; // Desplazamiento horizontal de la hitbox desde la posición del globo
-let hitboxOffsetY = 50; // Desplazamiento vertical de la hitbox desde la posición del globo
-
-// Calcula los límites de la hitbox del globo en función de su posición y tamaño
-let hitboxLeft = globo.x + hitboxOffsetX;
-let hitboxRight = hitboxLeft + hitboxWidth;
-let hitboxTop = globo.y + hitboxOffsetY;
-let hitboxBottom = hitboxTop + hitboxHeight;
 
 function checkCollision() {
     // Calcula los límites de la jabalina
