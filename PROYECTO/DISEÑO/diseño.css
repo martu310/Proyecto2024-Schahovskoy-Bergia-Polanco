@@ -146,7 +146,7 @@
     display: none;
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     left: 50%;
     width: 4cm;
     height:1.5cm;
@@ -157,6 +157,27 @@
     z-index: 1;
     text-align: justify;
     text-align: center;
-    margin-bottom: 2cm;
     padding: 10px;
+}
+
+#win {
+    
+    font-family: 'Pixelify sans', sans-serif;
+    font-size: larger;
+    display: none;
+    text-align: justify;
+    text-align: center;
+    position: absolute;
+    bottom: 60%;
+    left: 50%;
+    margin-bottom: 2cm;
+    height: 40px; width: 90px;
+    padding: 10px;
+    border-radius: 10px;
+    border-color: rgb(5, 42, 5);
+    border-width: 10px;
+    text-decoration: none;
+    background-color: green;
+    background-size:cover;
+    color: white;
 }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIVEL_1</title>
+<title>NIVEL_3</title>
 <link rel="stylesheet" href="../DISEÑO/diseño.css">
 <link rel="stylesheet" href="DISEÑO/diseño.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,10 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 <style>
     body {font-family:'Pixelify sans'}
-    button{
-        font-size:medium;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
     body {
         margin: 0;
         padding: 0;
@@ -25,7 +21,7 @@
 
     }
 </style>
-<script src="../JAVA/juego.js" > </script>
+<script src="../JAVA/DIFICIL.js" > </script>
 </head>
     <body>
         <div id="container">
@@ -50,7 +46,10 @@
         <div class = "botonStop"> 
             <button id="botonParar">Parar</button>
         </div>
+        <div> 
+            <button id="reloadButton" onclick="reloadPage()">TRY AGAIN</button>
+        </div>
         <canvas id = "board" ></canvas>
     </body>
-    <script src="../JAVA/script.js"></script>
+    <script src="../JAVA/BARRA.js"></script>
 </html>

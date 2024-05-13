@@ -36,9 +36,24 @@ let globo = {
     height: globoheight,
 }
 
+//HITBOX GLOBO
+let hitboxWidth = 30; 
+let hitboxHeight = 30;
+let hitboxOffsetX = 10;
+let hitboxOffsetY = 50;
+
+// Calcula los límites de la hitbox del globo en función de su posición y tamaño
+let hitboxLeft = globo.x + hitboxOffsetX;
+let hitboxRight = hitboxLeft + hitboxWidth;
+let hitboxTop = globo.y + hitboxOffsetY;
+let hitboxBottom = hitboxTop + hitboxHeight;
+
 const g = 10; 
 let alcance ;
 let jabalinaLanzada;
+let globoExplota;
+let colisionOcurrida = false;
+let colisionVerificada = false;
 
 window.onload = function() {
     // Inicializa el board
@@ -47,45 +62,46 @@ window.onload = function() {
     board.width = boardwidth;
     context = board.getContext("2d");
 
-    // Inicializa el globo y dibuja le globo en el canva 
+    // Inicializa el globo y dibuja le globo en el canvas
     globoimag = new Image();
     globoimag.src = "../IMAGENES/globo.gif";
     globoimag.onload = function() {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
-    
-    //inicilaizar jabalina 
-    imagJabaSubida = new Image () ;
-    imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";    
 
-    //inicializar jabalina horizontal
+    // Inicializa las imágenes de la jabalina
+    imagJabaSubida = new Image();
+    imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";
 
-    imagJabaHor = new Image () ;
-    imagJabaHor.src = "../IMAGENES/JABALINA_HORIZONTAL.gif"; 
+    imagJabaHor = new Image();
+    imagJabaHor.src = "../IMAGENES/JABALINA_HORIZONTAL.gif";
 
-    //iniclaiar jabalina caida
+    imagJabaCaida = new Image();
+    imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif";
 
-    imagJabaCaida = new Image () ;
-    imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif"; 
-
-
-    requestAnimationFrame (Actualizar) ;  
+    globoExplota = new Image();
+    globoExplota.src = "../IMAGENES/GLOBO_EXPLOTA.gif";
+  
+    requestAnimationFrame(Actualizar);
 }
 
 function Actualizar() {
     requestAnimationFrame(Actualizar);
-    // Borra el frame anterior
     context.clearRect(0, 0, boardwidth, boardheight);
 
-    // Vuelve a dibujar el globo
-    context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
+    if (!colisionOcurrida) {
+        context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
+    }
+    else {
+        context.drawImage(globoExplota, globo.x, globo.y, globo.width, globo.height);
+    }
 
-    // Vuelve a dibujar la jabalina
     Parar()
     trayectoria();
     checkJabalina();
     context.drawImage(jaba.jabaimg, jaba.x, jaba.y, jaba.width, jaba.height);
     checkCollision();
+
 }
 
 function Parar()
@@ -95,19 +111,15 @@ function Parar()
     }
 }
 
-function checkJabalina()
-{
-    if(jaba.x + jaba.width == reach()/2 )
-    {
-        jaba.jabaimg = imagJabaHor;
-    } 
-    else if(jaba.x + jaba.width < reach()/2 )
-    {
-        jaba.jabaimg = imagJabaSubida; // Cambiado a imagJabaSubida
-    } 
-    else if (jaba.x + jaba.width > reach()/2)
-    {
-        jaba.jabaimg = imagJabaCaida; // Cambiado a imagJabaCaida
+function checkJabalina() {
+    if (!Parar()) {
+        jaba.jabaimg = imagJabaSubida; 
+    } else {
+        if (jaba.x < reach() / 2) {
+            jaba.jabaimg = imagJabaSubida; 
+        } else {
+            jaba.jabaimg = imagJabaCaida; 
+        }
     }
 }
 
@@ -116,28 +128,28 @@ function reach (){
     return alcance;
 }
 
-function trayectoria (){
-    if(Parar() == true)
-        {
-            jabalinaLanzada=true;
-            jaba.x+=2.5;
-            jaba.y = jabay + -1*( ((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
-        }
-}
-// Define los límites de la hitbox del globo
-let hitboxWidth = 30; // Ancho de la hitbox
-let hitboxHeight = 130; // Alto de la hitbox
-let hitboxOffsetX = 10; // Desplazamiento horizontal de la hitbox desde la posición del globo
-let hitboxOffsetY = 50; // Desplazamiento vertical de la hitbox desde la posición del globo
+function trayectoria() {
+    if (Parar()) {
+        let alturaDeseada = 450; 
+    
+        if (jaba.y >= alturaDeseada)
+         {
+            jabalinaLanzada = true;
+            jaba.y = alturaDeseada;
 
-// Calcula los límites de la hitbox del globo en función de su posición y tamaño
-let hitboxLeft = globo.x + hitboxOffsetX;
-let hitboxRight = hitboxLeft + hitboxWidth;
-let hitboxTop = globo.y + hitboxOffsetY;
-let hitboxBottom = hitboxTop + hitboxHeight;
+            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2)
+                 {
+                 jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
+                 }
+        }           else
+                     {
+                     jaba.x += 2.5;
+                    jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
+                     }
+    }
+}
 
 function checkCollision() {
-    // Calcula los límites de la jabalina
     let jabalinaLeft = jaba.x;
     let jabalinaRight = jaba.x + jaba.width;
     let jabalinaTop = jaba.y;
@@ -146,12 +158,20 @@ function checkCollision() {
     // Comprueba si hay intersección entre los límites de la jabalina y la hitbox del globo
     if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
         // Aquí puedes agregar acciones adicionales, como detener el juego, mostrar un mensaje, etc.;
-        alert("GANASTE");
+        colisionOcurrida = true; 
+        document.getElementById("win").style.display = "block";
     }
     if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height)||(jaba.y + jaba.height > globo.y + globo.height / 2))) {
-        document.getElementById("reloadButton").style.display = "block"; // Mostrar el botón
+        colisionVerificada = true;
+    }
+    if (colisionVerificada) {
+        document.getElementById("reloadButton").style.display = "block";
     }
 }
 function reloadPage() {
     window.location.reload(); // Recargar la página cuando se hace clic en el botón
 }
+
+// Oculta el botón "Try Again" al principio
+document.getElementById("reloadButton").style.display = "none";
+document.getElementById("win").style.display = "none";
