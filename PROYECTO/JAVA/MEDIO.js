@@ -57,13 +57,13 @@ let colisionOcurrida=false;
 let colisionVerificada=false;
 
 window.onload = function() {
-    // Inicializa el board
+    //Inicializa el board
     board = document.getElementById("board");
     board.height = boardheight;
     board.width = boardwidth;
     context = board.getContext("2d");
 
-    // Inicializa el globo y dibuja le globo en el canva 
+    //Inicializa el globo y dibuja le globo en el canva 
     globoimag = new Image();
     globoimag.src = "../IMAGENES/globo.gif";
     globoimag.onload = function() {
@@ -94,20 +94,20 @@ window.onload = function() {
 function Actualizar() {
     requestAnimationFrame(Actualizar);
 
-    // Borra el frame anterior
+    //Borra el frame anterior
     context.clearRect(0, 0, boardwidth, boardheight);
 
     if (!colisionOcurrida) {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
-    // Dibuja la imagen del globo explotando si ha ocurrido una colisión
+    //Dibuja la imagen del globo explotando si ha ocurrido una colisión
     else {
         context.drawImage(globoExplota, globo.x, globo.y, globo.width, globo.height);
     }
 
     moverGloboY();
 
-    // Vuelve a dibujar la jabalina
+    //Vuelve a dibujar la jabalina
     Parar()
     trayectoria();
     checkJabalina();
@@ -115,7 +115,7 @@ function Actualizar() {
     checkCollision();
 }
 
-// Función para mover el globo en el eje Y
+//Función para mover el globo en el eje Y
 function moverGloboY() {
     globo.y += globoSpeedY;
     if (globo.y <= 0 || globo.y + globo.height >= boardheight) {
@@ -169,19 +169,19 @@ function trayectoria() {
 }
 
 function checkCollision() {
-    // Calcula los límites de la jabalina
+    //Calcula los límites de la jabalina
     let jabalinaLeft = jaba.x;
     let jabalinaRight = jaba.x + jaba.width;
     let jabalinaTop = jaba.y;
     let jabalinaBottom = jaba.y + jaba.height;
 
-    // Calcula los límites de la hitbox del globo
+    //Calcula los límites de la hitbox del globo
     let hitboxLeft = globo.x + hitboxOffsetX;
     let hitboxRight = hitboxLeft + hitboxWidth;
     let hitboxTop = globo.y + hitboxOffsetY;
     let hitboxBottom = hitboxTop + hitboxHeight;
 
-    // Comprueba si hay colisión, muestra boton de win y try again
+    //Comprueba si hay colisión, muestra boton de win y try again
     if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
         document.getElementById("win").style.display = "block";
         document.getElementById("reloadButton").style.display = "block";
