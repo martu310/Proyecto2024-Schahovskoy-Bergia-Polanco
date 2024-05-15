@@ -165,7 +165,7 @@
 #botonId:hover
 {
     transition: all 0,5s;
-    background-image: url('../IMAGENES/BOTON\ HOVER.gif');
+    background-image: url('../IMAGENES/BOTON_HOVER.gif');
     transform: scale(2.2,2.2);
 }
 #botonId:not(:hover)
