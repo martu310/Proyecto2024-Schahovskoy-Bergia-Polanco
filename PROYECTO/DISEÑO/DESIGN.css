@@ -1,0 +1,175 @@
+/*GENERAL*/
+.main
+{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.background-niveles
+{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top:25px;
+    left:65px;
+}
+#nubes
+{
+    width: 80%; height: 3cm;
+    background-size: cover;
+    margin-left: 5.5cm;
+    margin-top: 1cm;
+    z-index: -1;
+}
+.instrucciones
+{
+    width: 10cm;
+    height:auto;
+    border-radius: 6px;
+    padding: 10px;
+    
+    color: #ffffff;
+    background-color: #000000;
+
+    z-index: 1;
+}
+
+/*JAVA*/
+#container 
+{
+    position: relative;
+}
+.object 
+{
+    position: absolute;
+}
+#globo 
+{
+    width: 50px;
+    height: 50px;
+}
+#progreso 
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgb(255, 0, 0);
+    z-index: 1000;
+}
+#fondoProgreso 
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(140, 140, 148);
+    z-index: 999;
+}
+.barra 
+{
+    position: absolute;
+    left: 8cm;
+    bottom: 2cm;
+    width: 5cm;
+    height: 20px;
+    overflow: hidden;
+}
+#board 
+{
+    position: fixed;
+    top: 0;
+    left: 15%;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; 
+    border-bottom: 1px solid black;
+}
+
+/*BOTONES*/
+#reloadButton 
+{
+    display: none;
+    font-family: 'Pixelify sans', sans-serif;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 4cm;
+    height:1.5cm;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: red;
+    cursor:pointer;
+    z-index: 1;
+    text-align: justify;
+    text-align: center;
+    padding: 10px;
+}
+#win 
+{
+    display: none;
+    font-family: 'Pixelify sans', sans-serif;
+    position: absolute;
+    text-decoration: none;
+    bottom: 60%;
+    left: 50%;
+    width: 4cm;
+    height:1.5cm;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: rgb(29, 182, 70);
+    cursor:pointer;
+    z-index: 1;
+    text-align: justify;
+    text-align: center;
+    padding: 10px;
+}
+#botonParar
+{
+    font-family: 'Pixelify sans', sans-serif;
+    position: absolute;
+    bottom: 0.5%;
+    left: 35%;
+    width: 2cm;
+    height:1.5cm;
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: red;
+    cursor:pointer;
+    z-index: 1;
+    text-align: justify;
+    text-align: center;
+    margin-bottom: 2cm;
+    padding: 10px;
+}
+#botonId
+{
+    text-align: justify;
+    text-align: center;
+    transform: scale(2,2);
+    margin-bottom: 2cm;
+    height: 20px; width: 60px;
+    padding: 10px;
+    text-decoration: none;
+    background-image: url('../IMAGENES/BOTON.gif');
+    background-size:cover;
+    color: white;
+}
+#botonId:hover
+{
+    transition: all 0,5s;
+    background-image: url('../IMAGENES/BOTON\ HOVER.gif');
+    transform: scale(2.2,2.2);
+}
+#botonId:not(:hover)
+{
+    transition: all 0.5s;
+    background-image: url('../IMAGENES/BOTON.gif');
+}
