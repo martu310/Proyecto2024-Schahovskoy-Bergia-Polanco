@@ -29,7 +29,7 @@ let globox = 500;
 let globoy = 150;
 let globoimag;
 let globoExplota;
-let globoSpeedY = 2;
+let globoSpeedY = 3;
 
 let globo = {
     x: globox,
