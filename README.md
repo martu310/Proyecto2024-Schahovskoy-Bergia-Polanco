@@ -1,4 +1,4 @@
 # Proyecto2024-Schahovskoy-Bergia-Polanco
 Jabalina
 # Indice
-PROYECTO/MENU
+# Autores
