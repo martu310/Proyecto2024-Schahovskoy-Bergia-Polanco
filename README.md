@@ -15,7 +15,7 @@ Juego interactivo de tiro oblicuo en dos dimensiones
 
 |EMAIL|AUTOR|
 |-----|-----|
-|23020918@ucc.edu.ar|Bergia, Juan Cruz|
+|2320918@ucc.edu.ar|Bergia, Juan Cruz|
 |_@ucc.edu.ar|Polanco, Martina|
 |2303211@ucc.edu.ar|Schahovskoy Hoferek, Karol Alexia|
 
