@@ -9,12 +9,13 @@ Jabalina
 - [Ayuda]()
 
 ## Autores
-- **Schahovskoy Hoferek**, Karol Alexia
 - **Bergia**, Juan Cruz
 - **Polanco**, Martina
+- **Schahovskoy Hoferek**, Karol Alexia
 
 |EMAIL|AUTOR|
 |-----|-----|
 |23020918@ucc.edu.ar|Bergia, Juan Cruz|
+|_@ucc.edu.ar|Polanco, Martina|
 |2303211@ucc.edu.ar|Schahovskoy Hoferek, Karol Alexia|
 
