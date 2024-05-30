@@ -1,5 +1,5 @@
 # Proyecto2024-Schahovskoy-Bergia-Polanco
-Jabalina
+Juego interactivo de tiro oblicuo en dos dimensiones
 
 ## Índice
 - [Menú]()
