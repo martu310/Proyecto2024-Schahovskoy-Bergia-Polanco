@@ -2,11 +2,11 @@
 Juego interactivo de tiro oblicuo en dos dimensiones
 
 ## Índice
-- [Menú]()
-- [Nivel 1]()
-- [Nivel 2]()
-- [Nivel 3]()
-- [Ayuda]()
+- [Menú](https://martu310.github.io/Proyecto2024-Schahovskoy-Bergia-Polanco/)
+- [Nivel 1](https://martu310.github.io/Proyecto2024-Schahovskoy-Bergia-Polanco/PROYECTO/PAGINAS/NIVEL_1.html)
+- [Nivel 2](https://martu310.github.io/Proyecto2024-Schahovskoy-Bergia-Polanco/PROYECTO/PAGINAS/NIVEL_2.html)
+- [Nivel 3](https://martu310.github.io/Proyecto2024-Schahovskoy-Bergia-Polanco/PROYECTO/PAGINAS/NIVEL_3.html)
+- [Ayuda](https://martu310.github.io/Proyecto2024-Schahovskoy-Bergia-Polanco/PROYECTO/PAGINAS/AYUDA.html)
 
 ## Autores
 - **Bergia**, Juan Cruz
