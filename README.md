@@ -2,10 +2,10 @@
 Jabalina
 
 ## Índice
-- [Menú](https://ucc-labcompu2.github.io/proyecto2024-heredia-erazo/index.html)
-- [Nivel 1](https://ucc-labcompu2.github.io/proyecto2024-heredia-erazo/productos.html)
-- [Nivel 2](https://ucc-labcompu2.github.io/proyecto2024-heredia-erazo/nosotros.html)
-- [Nivel 3](https://ucc-labcompu2.github.io/proyecto2024-heredia-erazo/contacto.html)
+- [Menú]()
+- [Nivel 1]()
+- [Nivel 2]()
+- [Nivel 3]()
 - [Ayuda]
 
 ## Autores
