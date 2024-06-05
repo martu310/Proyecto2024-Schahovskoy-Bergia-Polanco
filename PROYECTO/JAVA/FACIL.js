@@ -38,7 +38,7 @@ let globo = {
 }
 
 //Hitbox globo
-let hitboxWidth = 30; 
+let hitboxWidth = 30;
 let hitboxHeight = 30;
 let hitboxOffsetX = 10;
 let hitboxOffsetY = 50;
@@ -50,12 +50,12 @@ let hitboxTop = globo.y + hitboxOffsetY;
 let hitboxBottom = hitboxTop + hitboxHeight;
 
 //Constantes de cálculo
-const g = 10; 
-let alcance ;
+const g = 10;
+let alcance;
 let jabalinaLanzada;
 let colisionOcurrida = false;
 
-window.onload = function() {
+window.onload = function () {
     //Inicializa el board
     board = document.getElementById("board");
     board.height = boardheight;
@@ -65,7 +65,7 @@ window.onload = function() {
     //Inicializa el globo y dibuja le globo en el canvas
     globoimag = new Image();
     globoimag.src = "../IMAGENES/globo.gif";
-    globoimag.onload = function() {
+    globoimag.onload = function () {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
 
@@ -81,7 +81,7 @@ window.onload = function() {
 
     globoExplota = new Image();
     globoExplota.src = "../IMAGENES/GLOBO_EXPLOTA.gif";
-  
+
     requestAnimationFrame(Actualizar);
 }
 
@@ -104,8 +104,7 @@ function Actualizar() {
 
 }
 
-function Parar()
-{
+function Parar() {
     if (newton != null) {
         return true;
     }
@@ -113,39 +112,36 @@ function Parar()
 
 function checkJabalina() {
     if (!Parar()) {
-        jaba.jabaimg = imagJabaSubida; 
+        jaba.jabaimg = imagJabaSubida;
     } else {
         if (jaba.x < reach() / 2) {
-            jaba.jabaimg = imagJabaSubida; 
+            jaba.jabaimg = imagJabaSubida;
         } else {
-            jaba.jabaimg = imagJabaCaida; 
+            jaba.jabaimg = imagJabaCaida;
         }
     }
 }
 
-function reach (){
-    alcance = (newton*newton) / g ;
+function reach() {
+    alcance = (newton * newton) / g;
     return alcance;
 }
 
 function trayectoria() {
     if (Parar()) {
-        let alturaDeseada = 450; 
-    
-        if (jaba.y >= alturaDeseada)
-         {
+        let alturaDeseada = 450;
+
+        if (jaba.y >= alturaDeseada) {
             jabalinaLanzada = true;
             jaba.y = alturaDeseada;
 
-            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2)
-                 {
-                 jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
-                 }
-        }           else
-                     {
-                     jaba.x += 2.5;
-                    jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
-                     }
+            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2) {
+                jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
+            }
+        } else {
+            jaba.x += 2.5;
+            jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
+        }
     }
 }
 
@@ -157,12 +153,12 @@ function checkCollision() {
 
     //Comprueba si hay colisión , muestra boton de win y try again
     if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
-        colisionOcurrida = true; 
+        colisionOcurrida = true;
         document.getElementById("win").style.display = "block";
         document.getElementById("reloadButton").style.display = "block";
     }
     //Si pierde se muestra el boton
-    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height)||(jaba.y + jaba.height > globo.y + globo.height / 2))) {
+    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height) || (jaba.y + jaba.height > globo.y + globo.height / 2))) {
         document.getElementById("reloadButton").style.display = "block";
     }
 }

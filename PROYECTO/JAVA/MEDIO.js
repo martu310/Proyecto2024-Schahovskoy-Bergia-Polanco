@@ -39,7 +39,7 @@ let globo = {
 }
 
 //Hitbox globo
-let hitboxWidth = 30; 
+let hitboxWidth = 30;
 let hitboxHeight = 30;
 let hitboxOffsetX = 10;
 let hitboxOffsetY = 50;
@@ -50,13 +50,13 @@ let hitboxRight = hitboxLeft + hitboxWidth;
 let hitboxTop = globo.y + hitboxOffsetY;
 let hitboxBottom = hitboxTop + hitboxHeight;
 
-const g = 10; 
-let alcance ;
+const g = 10;
+let alcance;
 let jabalinaLanzada;
-let colisionOcurrida=false;
-let colisionVerificada=false;
+let colisionOcurrida = false;
+let colisionVerificada = false;
 
-window.onload = function() {
+window.onload = function () {
     //Inicializa el board
     board = document.getElementById("board");
     board.height = boardheight;
@@ -66,29 +66,29 @@ window.onload = function() {
     //Inicializa el globo y dibuja le globo en el canva 
     globoimag = new Image();
     globoimag.src = "../IMAGENES/globo.gif";
-    globoimag.onload = function() {
+    globoimag.onload = function () {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
-    
+
     //Inicilaiza jabalina 
-    imagJabaSubida = new Image () ;
-    imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";    
+    imagJabaSubida = new Image();
+    imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";
 
     //Inicilaiza jabalina horizontal
 
-    imagJabaHor = new Image () ;
-    imagJabaHor.src = "../IMAGENES/JABALINA_HORIZONTAL.gif"; 
+    imagJabaHor = new Image();
+    imagJabaHor.src = "../IMAGENES/JABALINA_HORIZONTAL.gif";
 
     //Inicilaiza jabalina caida
 
-    imagJabaCaida = new Image () ;
-    imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif"; 
+    imagJabaCaida = new Image();
+    imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif";
 
     //Inicilaiza globo explotando
-    globoExplota = new Image () ;
-    globoExplota.src = "../IMAGENES/GLOBO_EXPLOTA.gif"; 
+    globoExplota = new Image();
+    globoExplota.src = "../IMAGENES/GLOBO_EXPLOTA.gif";
 
-    requestAnimationFrame (Actualizar) ;  
+    requestAnimationFrame(Actualizar);
 }
 
 function Actualizar() {
@@ -103,7 +103,7 @@ function Actualizar() {
     //Dibuja la imagen del globo explotando si ha ocurrido una colisión
     else {
         context.drawImage(globoExplota, globo.x, globo.y, globo.width, globo.height);
-    }
+    }
 
     moverGloboY();
 
@@ -123,8 +123,7 @@ function moverGloboY() {
     }
 }
 
-function Parar()
-{
+function Parar() {
     if (newton != null) {
         return true;
     }
@@ -132,39 +131,36 @@ function Parar()
 
 function checkJabalina() {
     if (!Parar()) {
-        jaba.jabaimg = imagJabaSubida; 
+        jaba.jabaimg = imagJabaSubida;
     } else {
         if (jaba.x < reach() / 2) {
-            jaba.jabaimg = imagJabaSubida; 
+            jaba.jabaimg = imagJabaSubida;
         } else {
-            jaba.jabaimg = imagJabaCaida; 
+            jaba.jabaimg = imagJabaCaida;
         }
     }
 }
 
-function reach (){
-    alcance = (newton*newton) / g ;
+function reach() {
+    alcance = (newton * newton) / g;
     return alcance;
 }
 
 function trayectoria() {
     if (Parar()) {
-        let alturaDeseada = 450; 
-    
-        if (jaba.y >= alturaDeseada)
-         {
+        let alturaDeseada = 450;
+
+        if (jaba.y >= alturaDeseada) {
             jabalinaLanzada = true;
             jaba.y = alturaDeseada;
 
-            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2)
-                 {
-                 jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
-                 }
-        }           else
-                     {
-                     jaba.x += 2.5;
-                    jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
-                     }
+            if (jaba.x >= globo.x + globo.width / 2 - jaba.width / 2) {
+                jaba.x = globo.x + globo.width / 2 - jaba.width / 2;
+            }
+        } else {
+            jaba.x += 2.5;
+            jaba.y = jabay + -1 * (((-g / (newton * newton)) * (jaba.x * jaba.x) + jaba.x));
+        }
     }
 }
 
@@ -185,10 +181,10 @@ function checkCollision() {
     if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
         document.getElementById("win").style.display = "block";
         document.getElementById("reloadButton").style.display = "block";
-        colisionOcurrida =true;
+        colisionOcurrida = true;
     }
 
-    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height)||(jaba.y + jaba.height > globo.y + globo.height / 2))) {
+    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height) || (jaba.y + jaba.height > globo.y + globo.height / 2))) {
         document.getElementById("reloadButton").style.display = "block";
     }
 }
