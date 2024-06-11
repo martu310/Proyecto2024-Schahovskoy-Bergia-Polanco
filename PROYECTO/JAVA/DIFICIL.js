@@ -128,6 +128,7 @@ function Parar() {
     if (newton != null) {
         return true;
     }
+    return false;
 }
 
 function checkJabalina() {
