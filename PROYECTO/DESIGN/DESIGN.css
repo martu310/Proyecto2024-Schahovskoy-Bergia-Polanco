@@ -185,6 +185,20 @@
         align-items: center;
     }
 
+        #botonId {
+        text-align: justify;
+        text-align: center;
+        transform: scale(2, 2);
+        margin-bottom: 1cm;
+        height: 20px;
+        width: 60px;
+        padding: 10px;
+        text-decoration: none;
+        background-image: url('../IMAGENES/BOTON.gif');
+        background-size: cover;
+        color: white;
+    }
+
     .background-niveles {
         display: flex;
         flex-direction: column;
