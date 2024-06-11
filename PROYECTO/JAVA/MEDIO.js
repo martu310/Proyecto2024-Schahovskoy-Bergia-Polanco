@@ -65,7 +65,7 @@ window.onload = function () {
 
     //Inicializa el globo y dibuja le globo en el canva 
     globoimag = new Image();
-    globoimag.src = "../IMAGENES/globo.gif";
+    globoimag.src = "../IMAGENES/GLOBO.gif";
     globoimag.onload = function () {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
