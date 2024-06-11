@@ -25,6 +25,7 @@ function detener() {
     clearInterval(intervalo);
     width = parseInt(progreso.style.width) || 0;
     newton = width;
+    parar();
 }
 
 //Evento cuando se hace clic en el botón "Parar"
