@@ -97,8 +97,10 @@
     display: none;
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    bottom: 50%;
-    left: 50%;
+    top: 50%;
+    left: 55%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 4cm;
     height: 1.5cm;
     border-radius: 6px;
@@ -116,8 +118,11 @@
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
     text-decoration: none;
-    bottom: 50%;
-    left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     width: 4cm;
     height: 1.5cm;
     border-radius: 6px;
