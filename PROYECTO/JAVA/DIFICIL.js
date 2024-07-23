@@ -9,7 +9,7 @@ let jabaheight = 75;
 let jabax = 45;
 let jabay = 280;
 
-//Imagenes para cada momento
+//Imágenes para cada momento
 let imagJabaSubida;
 let imagJabaHor;
 let imagJabaCaida;
@@ -29,7 +29,7 @@ let globox = 500;
 let globoy = 150;
 let globoimag;
 let globoExplota;
-let globoSpeedY = 3;
+let globoSpeedY = 1;
 
 let globo = {
     x: globox,
@@ -50,7 +50,7 @@ let hitboxRight = hitboxLeft + hitboxWidth;
 let hitboxTop = globo.y + hitboxOffsetY;
 let hitboxBottom = hitboxTop + hitboxHeight;
 
-//Contantes de cálculo
+//Constantes de cálculo
 const g = 10;
 let alcance;
 let jabalinaLanzada;
@@ -58,6 +58,8 @@ let colisionOcurrida = false;
 let colisionVerificada = false;
 
 window.onload = function () {
+    incrementarIntentos(); // Incrementa los intentos al cargar la página
+
     //Inicializa el board
     board = document.getElementById("board");
     board.height = boardheight;
@@ -71,21 +73,16 @@ window.onload = function () {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
 
-    //Inicializa jabalina 
+    // Inicializa las imágenes de la jabalina y globo
     imagJabaSubida = new Image();
     imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";
-
-    //Inicializa jabalina horizontal
 
     imagJabaHor = new Image();
     imagJabaHor.src = "../IMAGENES/JABALINA_HORIZONTAL.gif";
 
-    //Inicializa jabalina caida
-
     imagJabaCaida = new Image();
     imagJabaCaida.src = "../IMAGENES/JABALINA_CAIDA.gif";
 
-    //Inicializa globo explotando
     globoExplota = new Image();
     globoExplota.src = "../IMAGENES/GLOBO_EXPLOTA.gif";
 
@@ -106,6 +103,7 @@ function Actualizar() {
         context.drawImage(globoExplota, globo.x, globo.y, globo.width, globo.height);
     }
 
+    //Mueve el globo en el eje Y
     moverGloboY();
 
     //Vuelve a dibujar la jabalina
@@ -128,7 +126,6 @@ function Parar() {
     if (newton != null) {
         return true;
     }
-    return false;
 }
 
 function checkJabalina() {
@@ -167,27 +164,17 @@ function trayectoria() {
 }
 
 function checkCollision() {
-    //Calcula los límites de la jabalina
     let jabalinaLeft = jaba.x;
     let jabalinaRight = jaba.x + jaba.width;
     let jabalinaTop = jaba.y;
     let jabalinaBottom = jaba.y + jaba.height;
 
-    //Calcula los límites de la hitbox del globo
-    let hitboxLeft = globo.x + hitboxOffsetX;
-    let hitboxRight = hitboxLeft + hitboxWidth;
-    let hitboxTop = globo.y + hitboxOffsetY;
-    let hitboxBottom = hitboxTop + hitboxHeight;
-
-    //Comprueba si hay colisión, muestra el boton win y try again
+    // Comprueba si hay colisión, muestra botón de win y try again
     if (jabalinaRight > hitboxLeft && jabalinaLeft < hitboxRight && jabalinaBottom > hitboxTop && jabalinaTop < hitboxBottom) {
-        document.getElementById("win").style.display = "block";
-        document.getElementById("reloadButton").style.display = "block";
         colisionOcurrida = true;
-    }
-
-    //Si pierde se muestra el boton
-    if (jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height) || (jaba.y + jaba.height > globo.y + globo.height / 2))) {
+        document.getElementById("win").style.display = "block";
+        mostrarIntentos(); // Muestra los intentos solo cuando gana
+    } else if (!colisionOcurrida && jabalinaLanzada && ((jaba.x > globo.x + globo.width && jaba.y > globo.y && jaba.y + jaba.height < globo.y + globo.height) || (jaba.y + jaba.height > globo.y + globo.height / 2))) {
         document.getElementById("reloadButton").style.display = "block";
     }
 }
@@ -196,5 +183,6 @@ function reloadPage() {
     window.location.reload();
 }
 function redirectTo(url) {
+    reiniciarIntentos();
     window.location.href = url;
 }

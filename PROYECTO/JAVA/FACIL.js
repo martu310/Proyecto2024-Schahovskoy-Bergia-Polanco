@@ -9,7 +9,7 @@ let jabaheight = 75;
 let jabax = 45;
 let jabay = 280;
 
-//Imagenes para cada momento
+//Imágenes para cada momento
 let imagJabaSubida;
 let imagJabaHor;
 let imagJabaCaida;
@@ -70,7 +70,7 @@ window.onload = function () {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
 
-    // Inicializa las imágenes de la jabalina
+    // Inicializa las imágenes de la jabalina y globo
     imagJabaSubida = new Image();
     imagJabaSubida.src = "../IMAGENES/JABALINA_SUBIDA.gif";
 
@@ -88,15 +88,19 @@ window.onload = function () {
 
 function Actualizar() {
     requestAnimationFrame(Actualizar);
+
+    //Borra el frame anterior
     context.clearRect(0, 0, boardwidth, boardheight);
 
     if (!colisionOcurrida) {
         context.drawImage(globoimag, globo.x, globo.y, globo.width, globo.height);
     }
+    //Dibuja la imagen del globo explotando si ha ocurrido una colisión
     else {
         context.drawImage(globoExplota, globo.x, globo.y, globo.width, globo.height);
     }
 
+    //Vuelve a dibujar la jabalina
     Parar();
     trayectoria();
     checkJabalina();
@@ -165,7 +169,7 @@ function reloadPage() {
 }
 
 function redirectTo(url) {
-    reiniciarIntentos(); // Reinicia los intentos al volver al menú
+    reiniciarIntentos();
     window.location.href = url;
 }
 

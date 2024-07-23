@@ -42,34 +42,34 @@
     </div>
     <main>
         <div class="background-niveles">
-            <a href="../../index.html" id="botonId">
-                MENU
-            </a>
-            <a href="AYUDA.html" id="botonId">
-                AYUDA
-            </a>
+            <a href="../../index.html" id="botonId" onclick="reiniciarIntentos()">MENU</a>
+            <a href="AYUDA.html" id="botonId">AYUDA</a>
         </div>
     </main>
     <div class="barra">
         <div id="fondoProgreso"></div>
         <div id="progreso"></div>
     </div>
-    <div class="botonStop">
-        <button id="botonParar">Parar</button>
+    <div>
+        <button id="botonParar">PARAR</button>
     </div>
     <div>
-        <button id="reloadButton" onclick="reloadPage()">TRY AGAIN</button>
+        <button id="reloadButton" onclick="reloadPage()">
+            REINTENTAR
+        </button>
     </div>
     <div>
         <button id="win" onclick="redirectTo('NIVEL_3.html')">
             ¡¡GANASTE!!
         </button>
     </div>
-    <div>
+    <div id="board-container">
+        <canvas id="board"></canvas>
     </div>
-    <canvas id="board"></canvas>
 </body>
 
+<script src="../JAVA/INTENTOS.js"></script>
+<script src="../JAVA/FACIL.js"></script>
 <script src="../JAVA/BARRA.js"></script>
 
 </html>

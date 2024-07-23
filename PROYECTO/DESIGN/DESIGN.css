@@ -97,7 +97,7 @@
     display: none;
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
-    bottom: 40%;
+    bottom: 50%;
     left: 50%;
     width: 4cm;
     height: 1.5cm;
@@ -116,7 +116,7 @@
     font-family: 'Pixelify sans', sans-serif;
     position: absolute;
     text-decoration: none;
-    bottom: 60%;
+    bottom: 50%;
     left: 50%;
     width: 4cm;
     height: 1.5cm;
@@ -128,6 +128,18 @@
     text-align: justify;
     text-align: center;
     padding: 10px;
+}
+
+#intentosText {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+  position: absolute;
+  top: 57%;
+  left: 55%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #botonParar {
